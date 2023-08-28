@@ -19,7 +19,7 @@ Create docker image using Dockerfile
 
 
 ```docker
-docker build -t mylandmarktech/springapp .
+docker build -t kelvinbala/springapp .
 ```
 
 ## Deploy Application Using Docker Compose 
@@ -32,5 +32,3 @@ docker-compose up -d
 ```docker
 docker ps -a
 ```
-## License
-[Landmark Technologies](http://www.mylandmarktech.com)
