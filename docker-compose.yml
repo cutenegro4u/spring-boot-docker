@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+    mongodbb:
+        image: mongo
+        restart: always
+        networks:
+          - amazon
+        environment:
+          - MONGO_INITDB_ROOT_USERNAME=devdb
+          - MONGO_INITDB_ROOT_PASSWORD=dev@123
+        volumes:
+          - myappvolume:/data/db
+    myapp:
+        image: kelvinbala/spring-boot-docker:1.0.0.1
+        restart: always
+        ports:
+          - 1234:8080
+        networks:
+          - amazon
+        environment:
+          - MONGO_DB_HOSTNAME=mongodbb
+          - MONGO_DB_USERNAME=devdb
+          - MONGO_DB_PASSWORD=dev@123
+volumes:
+    myappvolume:
+        external: true
+networks:
+    amazon:
+        external: true
